@@ -52,6 +52,53 @@ class Car {
 
 }
 
+
+/** * Class Person */
+class Person
+{
+
+    public $name = '';
+    private $age = null;
+
+    public function checkAge() {
+      if($this->age > 18) {
+        return (true);
+      }
+      elseif ($this->age < 18) {
+        return (false);
+      }
+    }
+
+    public function getAge() {
+        return $this->age;
+    }
+
+    public function setAge($value) {
+        return $this->age = $value;
+    }
+
+    public function __construct($name, $age) {
+        $this->checkAge();
+        $this->name = $name;
+        $this->age = $age;
+    }
+
+    public function showInfo() {
+        return '<br> Dit is ' . $this->name . ' en zijn/haar leeftijd is ' . $this->age . '.';
+    }
+
+}
+
+
+/** * Main code */
+$tim = new Person('Tim', 21);
+echo $tim->showInfo();
+echo '<br> Boolean is ' . $tim->checkAge();
+
+$sharon = new Person('Sharon', 25);
+echo $sharon->showInfo();
+echo '<br> Boolean is ' . $sharon->checkAge() . '<br>';
+
 $ford = new Car('Ford', 'Mustang');
 $ford->setFuel('Gasoline');
 echo $ford->showInfo();
